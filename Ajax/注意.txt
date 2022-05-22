@@ -1,0 +1,9 @@
+
+① script标签默认是同步加载的。当HTML页面在加载的过程中，遇到了一个script标签，就会中断HTML页面的加载，然后根据对应的src地址向服务器发起请求，当对应的javascript脚本加载完成后，HTML页面仍然不能加载，还必须等加载的javascript脚本执行完成后，HTML页面才能继续往下加载。
+
+② 当遇到script标签的时候会立即渲染一次。当HTML页面加载的过程中，遇到了一个script标签，如果之前已经加载了部分HTML内容，那么会先将之前加载的HTML内容渲染出来，然后再去加载对应的javascript脚本。
+
+
+
+
+动态创建的script标签默认是异步的，可以不用加script.async=true;
