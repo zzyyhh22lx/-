@@ -31,3 +31,26 @@
         });
 ```
 
+then-fs使用
+
+```shell
+##shell
+npm i then-fs
+```
+
+
+
+```js
+//then-fs 是 一个包，跟fs区别是返回一个promise对象
+import thenFs from 'then-fs'
+
+thenFs.readFile('./01.txt','utf8').then(r1 => {
+    console.log(r1)
+    return thenFs.readFile('./01.txt','utf8')
+}, err1 =>{
+    console.log(err1.message)
+}).then(r2 => {
+    console.log(r2)
+})
+```
+

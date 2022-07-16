@@ -47,6 +47,37 @@ my-component是我们自己写的组件，但是html在渲染dom的时候，my-c
 
 只要在data里弄个变量，给变量赋值就能动态的切换组件。这个其实在某些场景还是非常好用的安利一下。
 
+```html
+    <div id="app">
+
+        <input type="button" value="切换" @click="toggle" />
+        <component :is="comName"></component>
+
+    </div>
+
+    <script>
+        Vue.component('book', {
+            template: '<span class="book">《西游记》</span>'
+        })
+        Vue.component('eat', {
+            template: '<span class="book">《吃的》</span>'
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                comName: 'book'
+            },
+            methods: {
+                toggle() {
+                    this.comName === 'book' ? this.comName = 'eat' : this.comName = 'book';
+                }
+            }
+        })
+    </script>
+```
+
+
+
 ### 不受html模板限制的情况
 
 vue官网提醒以下来源使用模板的话，这条限制是不存在的：
